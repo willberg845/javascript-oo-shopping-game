@@ -1,11 +1,14 @@
 let gameComplete = false;
 // Define the three constants here
-const name = "unknown"
-const score = 0
-const items = 0
+const name = "unknown";
+const score = 0;
+const items = 0;
 
 // Define the player object here
-class player {
+
+let player = new Player(name,score,items);
+
+class Player {
     constructor(name, score, items){
         this.name = name;
         this.score = score;
