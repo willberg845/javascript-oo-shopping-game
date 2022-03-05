@@ -49,7 +49,7 @@ Object.defineProperty(Product.prototype, "daysToExpire", {
 // Add method getDetails to Product here
 
 Product.prototype.getDetails = function () {
-    return 'Product Name: ${this.name} , Product Price: ${this.price}';
+    return `Product Name: ${this.name} , Product Price: ${this.price}`;
 }
 
 // Define the MagicProduct class here
