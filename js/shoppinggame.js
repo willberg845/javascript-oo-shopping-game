@@ -6,31 +6,55 @@ const items = 0;
 
 // Define the player object here
 
-let player = new Player(name,score,items);
 
-class Player {
-    constructor(name, score, items){
-        this.name = name;
-        this.score = score;
-        this.items = items;
-    }
-    get getCurrentScore(){
+let player = {
+    name: name, 
+    score: score, 
+    items: items,
+    getCurrentScore(){
         return this.score;
-    }
-    set addPoints(points){
+    },
+    addPoints(points){
         this.score += points;
-    }
-    set deductPoints(points){
+    },
+    deductPoints(points){
         this.score -= points;
     }
-
 }
+
 // Define the Product class - write the Constructor function for Product class here
 
+class Product{
+
+    id;
+    name;
+    price;
+    expiryDate;
+
+    constructor(id, name, price, expiryDate){
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.expiryDate = expiryDate;
+    }
+}
+
 // Complete the dateDiff function
-const dateDiff = (date1, date2) => {};
+const dateDiff = (date1, date2) => {
+    var millDiff = date1 - date2;
+    var millToDate = Math.floor(millDiff/(1000*60*60*24));
+    return Math.abs(millToDate);
+};
 
 // Here, use Object.defineProperty to create property - daysToExpire
+
+Object.defineProperty(Product.prototype, "daysToExpire", {
+    get(){
+        const date1 = this.expiryDate;
+        const date2 = new Date();
+        return dateDiff(date1, date2);
+    }
+});
 
 // Add method getDetails to Product here
 
@@ -41,7 +65,7 @@ const dateDiff = (date1, date2) => {};
 // Define Rating class here
 
 // Complete the loadProducts function
-const loadProducts = (map, prodId) => {
+function loadProducts(map, prodId) {
     let a = new Array();
     try {
         // Call Object.keys() to load the property names of the Product object in to prodKeys array here
@@ -81,7 +105,7 @@ const loadProducts = (map, prodId) => {
     } catch (e) {
         return a;
     }
-};
+}
 
 
 // Complete the loadMagicProducts function
