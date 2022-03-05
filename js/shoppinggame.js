@@ -304,6 +304,9 @@ function init(data) {
 
         rl.question("What's your name? ", function (name) {
             // Assign the player object's name property to the user entered name here
+
+            player.name = window.prompt("Please enter your name:");
+
             console.log(`Welcome ${player.name} !!!`.blue);
             start(data);
         });
