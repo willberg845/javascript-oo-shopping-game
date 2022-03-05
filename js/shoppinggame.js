@@ -24,19 +24,11 @@ let player = {
 
 // Define the Product class - write the Constructor function for Product class here
 
-class Product{
-
-    id;
-    name;
-    price;
-    expiryDate;
-
-    constructor(id, name, price, expiryDate){
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.expiryDate = expiryDate;
-    }
+function Product(id, name, price, expiryDate){
+    this.id = id;
+    this.name = name;
+    this.price = price;
+    this.expiryDate;
 }
 
 // Complete the dateDiff function
