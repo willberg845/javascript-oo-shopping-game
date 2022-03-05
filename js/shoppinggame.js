@@ -34,17 +34,15 @@ function Product(id, name, price, expiryDate){
 // Complete the dateDiff function
 const dateDiff = (date1, date2) => {
     var millDiff = date1 - date2;
-    var millToDate = Math.floor(millDiff/(1000*60*60*24));
+    var millToDate = Math.ciel(millDiff/(1000*60*60*24));
     return Math.abs(millToDate);
 };
 
 // Here, use Object.defineProperty to create property - daysToExpire
 
 Object.defineProperty(Product.prototype, "daysToExpire", {
-    get(){
-        const date1 = this.expiryDate;
-        const date2 = new Date();
-        return dateDiff(date1, date2);
+    get: function(){
+        return dateDiff(this.expiryDate, new Date());
     }
 });
 
