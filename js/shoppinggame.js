@@ -329,16 +329,9 @@ function init(data) {
     const shop = (prodList, tBill, lastProd) => {
         let totalBill = tBill;
         const prId = generateProductId();
-        let product = null; // Assign the value of product here
+        let product = !Object.is(lastProd,undefined) ? lastProd : getProduct(prodList, prId); // Assign the value of product here
 
-        if (Object.is(lastProd,undefined)) {
-            product = getProduct(prodList, prId);
-        } else {
-            product = lastProd;
-        }
-
-
-        let productDetails = null; // Assign the value of productDetails here
+        let productDetails = product.getDetails(); // Assign the value of productDetails here
 
         rl.question(`You can buy - ${productDetails}.\n Do you want to buy this item <Y/N>? `.yellow, function (option) {
             const regexYes = null; // Use the RegExp built-in object type here as appropriate
