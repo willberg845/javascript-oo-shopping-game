@@ -389,11 +389,11 @@ function init(data) {
             } else {
                 // Call rating setter method of playerRating to set user entered rate value here
 
-                playerRating.rating(r);
+                playerRating.rating = r;
                 
                 // Call Object.assign() method here to populate target
 
-                //target = Object.assign("",)
+                let target = Object.assign({},player, playerRating);
                 
                 console.log(`${target.name} you rated this game as ${target.rate}`.green);
                 console.log("Thank you for your valuable feedback.".blue);
@@ -404,14 +404,14 @@ function init(data) {
 
     // Complete this function
     const exitLost = () => {
-        let pointsToReach; // Assign calculated value to pointsToReach here
+        let pointsToReach = 500 - player.getCurrentScore(); // Assign calculated value to pointsToReach here
         console.log(`Your chances are over! You are short of ${pointsToReach} to become a Shopping Master. Good Luck for next time!`.yellow);
         rateAndExit();
     };
 
     // Complete this function
     const exitWon = () => {
-        let finalStatus; 
+        let finalStatus = player.status; 
         console.log(`Congratulations!!! You became ${finalStatus}!`.blue);
         rateAndExit();
     };
