@@ -90,6 +90,8 @@ function loadProducts(map, prodId) {
         // Call Object.keys() to load the property names of the Product object in to prodKeys array here
         let prodKeys = [];
 
+        prodKeys = Object.keys(Product);
+
         let iterator_obj = map.entries();
 
         if (prodKeys.length > 0) {
