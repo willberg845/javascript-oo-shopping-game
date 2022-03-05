@@ -34,7 +34,7 @@ function Product(id, name, price, expiryDate){
 // Complete the dateDiff function
 const dateDiff = (date1, date2) => {
     var millDiff = date1 - date2;
-    var millToDate = Math.ciel(millDiff/(1000*60*60*24));
+    var millToDate = Math.ceil(millDiff/(1000*60*60*24));
     return Math.abs(millToDate);
 };
 
