@@ -70,7 +70,7 @@ class Rating {
     constructor() {
         this.rate = "";
     }
-    rating(value) {
+    set rating(value) {
         if (value > 1 && value <= 4){
             this.rate = "OK";
         } else if (value >= 5 && value <=7){
